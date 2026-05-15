@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradesperson Portal | HP Network</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #trades-content { display: none; }
+        .auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+    <div id="auth-overlay" class="auth-overlay">
+        <div class="tool-card" style="text-align: center;">
+            <h3>Authentication Required</h3>
+            <p>You must verify your identity to access the tradesperson portal.</p>
+            <button id="start-auth-btn" class="btn">Verify Identity</button>
+        </div>
+    </div>
+
+    <div id="trades-content">
+        <header>
+            <a href="index.html" class="logo">HP<span>Network</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="tradesperson.html" class="active">Portal</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" style="padding: 3rem 5% 1rem;">
+                <div class="container">
+                    <h1>Tradesperson Portal</h1>
+                    <p>Manage your profile and services within the HP Network.</p>
+                </div>
+            </section>
+
+            <section class="section container">
+                <div class="grid" style="grid-template-columns: 1fr 2fr;">
+                    <div class="card">
+                        <h3>My Profile</h3>
+                        <div style="margin-top: 1.5rem; text-align: center;">
+                            <div style="width: 100px; height: 100px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--gray);">👤</div>
+                            <h4 id="profile-name">Technician Name</h4>
+                            <p id="profile-contact" style="color: var(--gray); font-size: 0.9rem;">Email/Phone</p>
+                            <button class="btn btn-secondary" style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem;">Edit Profile</button>
+                        </div>
+                        <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                        <h4>Status</h4>
+                        <p style="color: var(--primary); font-weight: 600;">✓ Certified Member</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>My Services</h3>
+                        <div id="services-list" style="margin-top: 1.5rem;">
+                            <div class="input-group">
+                                <label>Service Areas (Towns)</label>
+                                <input type="text" placeholder="e.g. Dublin South, Bray, Greystones" value="Dublin City, Rathmines">
+                            </div>
+                            <div class="input-group">
+                                <label>Equipment Specialization</label>
+                                <input type="text" placeholder="e.g. Air to Water, Ground Source" value="Air to Water, Hybrid Systems">
+                            </div>
+                            <div class="input-group">
+                                <label>Availability</label>
+                                <input type="text" value="Monday - Friday, 9am - 5pm">
+                            </div>
+                            <button class="btn">Save Changes</button>
+                        </div>
+
+                        <h3 style="margin-top: 2.5rem;">Recent Certifications</h3>
+                        <div style="background: #f8fafc; padding: 1rem; border-radius: 0.8rem; margin-top: 1rem;">
+                            <p><strong>Annual Maintenance Excellence</strong> - Issued: Jan 2026</p>
+                            <p style="font-size: 0.8rem; color: var(--gray);">Next renewal due in 8 months.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div style="text-align: center; color: #94a3b8;">
+                    <p>&copy; 2026 HP Network (part of Cosoft Solutions). All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- OTP Modal (Reuse) -->
+    <div id="otp-modal" class="modal">
+        <div class="modal-content">
+            <h3>Tradesperson Access</h3>
+            <p>Please enter your email or phone number to receive a one-time access code.</p>
+            <form id="otp-form">
+                <div class="input-group">
+                    <input type="text" id="auth-contact" placeholder="Email or Phone Number" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Get One Time Code</button>
+            </form>
+            <p id="otp-msg" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Specific logic for tradesperson page
+        document.addEventListener('DOMContentLoaded', () => {
+            const isAuth = sessionStorage.getItem('hp_auth');
+            if (isAuth) {
+                document.getElementById('auth-overlay').style.display = 'none';
+                document.getElementById('trades-content').style.display = 'block';
+                document.getElementById('profile-contact').textContent = isAuth;
+            }
+
+            document.getElementById('start-auth-btn').addEventListener('click', () => {
+                document.getElementById('otp-modal').style.display = 'flex';
+            });
+        });
+    </script>
+</body>
+</html>

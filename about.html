@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | HP Network</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">HP<span>Network</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="#" id="tradesperson-link">Tradespeople</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 4rem 5% 2rem;">
+            <div class="container animate-fade-in">
+                <h1>About HP Network</h1>
+                <p>The Heat Pump Network of Excellence.</p>
+            </div>
+        </section>
+
+        <section class="section container">
+            <div class="grid">
+                <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                    <h2>Our Mission</h2>
+                    <p style="margin: 1.5rem 0; font-size: 1.1rem;">HP Network is dedicated to raising the standards of heat pump installations and maintenance across the country. We believe that efficient heating is the cornerstone of a sustainable future.</p>
+                    <p>We provide a platform that connects homeowners with certified professionals, ensuring that every heat pump system operates at peak performance.</p>
+                </div>
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="card" style="border-left: 4px solid var(--primary);">
+                        <h3>What We Provide</h3>
+                        <ul style="margin-top: 1rem; padding-left: 1.2rem;">
+                            <li style="margin-bottom: 0.8rem;"><strong>Certification:</strong> We provide certification of good work, verifying that technicians meet our rigorous standards.</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>Training:</strong> We offer comprehensive training programs for the latest equipment and installation methods.</li>
+                            <li><strong>Excellence:</strong> We are a network of excellence, constantly updating our practices with the latest industry insights.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- OTP Modal (Reuse) -->
+    <div id="otp-modal" class="modal">
+        <div class="modal-content">
+            <h3>Tradesperson Access</h3>
+            <p>Please enter your email or phone number to receive a one-time access code.</p>
+            <form id="otp-form">
+                <div class="input-group">
+                    <input type="text" id="auth-contact" placeholder="Email or Phone Number" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Get One Time Code</button>
+            </form>
+            <p id="otp-msg" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>HP Network</h4>
+                    <p>The heat pump network of excellence. Providing certification and training for a greener future.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="#" class="trades-link">Tradesperson Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Email: info@hpnetwork.ie</li>
+                        <li>Phone: +353 (0) 1 234 5678</li>
+                        <li>Location: Dublin, Ireland</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #334155; padding-top: 2rem; text-align: center; color: #94a3b8;">
+                <p>&copy; 2026 HP Network (part of Cosoft Solutions). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
